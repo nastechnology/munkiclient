@@ -72,7 +72,7 @@ class munkiclient {
     ensure => present,
     path   => '/Library/Preferences/ManagedInstalls.plist',
     key    => 'ClientIdentifier',
-    value  => "$::{hostname}.nas.local",
+    value  => "${hostname}.nas.local",
     value_type => 'string',
     require => File['/Library/Preferences/ManagedInstalls.plist'],
   }
