@@ -28,16 +28,18 @@ class munkiclient {
   }
 
   file {'/Library/Preferences/ManagedInstalls.plist':
-    ensure => present,
-    owner => root,
-    group => admin,
+    ensure  => present,
+    owner   => root,
+    group   => admin,
+    require => Package['munkitools'],
   }
 
   property_list_key { 'SoftwareRepoURL':
-    ensure => present,
-    path   => '/Library/Preferences/ManagedInstalls.plist',
-    key    => 'SoftwareRepoURL',
-    value  => $software_repo_url,
+    ensure  => present,
+    path    => '/Library/Preferences/ManagedInstalls.plist',
+    key     => 'SoftwareRepoURL',
+    value   => $software_repo_url,
+    require => File['/Library/Preferences/ManagedInstalls.plist'],
   }
 
   property_list_key { 'SoftwareRepoCACertificate':
@@ -54,6 +56,7 @@ class munkiclient {
     key    => 'LoggingLevel',
     value  => 1,
     value_type=> 'integer',
+    require => File['/Library/Preferences/ManagedInstalls.plist'],
   }
 
   property_list_key { 'DaysBetweenNotifications':
@@ -62,6 +65,7 @@ class munkiclient {
     key    => 'DaysBetweenNotifications',
     value  => 1,
     value_type => 'integer',
+    require => File['/Library/Preferences/ManagedInstalls.plist'],
   }
 
   property_list_key { 'ClientIdentifier':
@@ -70,6 +74,7 @@ class munkiclient {
     key    => 'ClientIdentifier',
     value  => "$::{hostname}.nas.local",
     value_type => 'string',
+    require => File['/Library/Preferences/ManagedInstalls.plist'],
   }
 
   property_list_key { 'InstallAppleSoftwareUpdates':
@@ -78,6 +83,7 @@ class munkiclient {
     key    => 'InstallAppleSoftwareUpdates',
     value  => true,
     value_type => 'boolean',
+    require => File['/Library/Preferences/ManagedInstalls.plist'],
   }
 
 }
