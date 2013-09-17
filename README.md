@@ -1,1 +1,1 @@
-# NACS MunkiClient (Munki Web Admin)
+## NACS Puppet MunkiClient Module (Munki Web Admin)
