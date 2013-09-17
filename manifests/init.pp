@@ -19,7 +19,7 @@ class munkiclient {
     provider => pkgdmg,
     alias    => 'munkiwebadmin',
     ensure   => installed,
-    source   => 'puppet:///modules/munkiclient/munkiwebadmin.dmg',
+    source   => 'https://munkiwa.nas.local/munki_repo/munkiwebadmin.dmg',
     schedule => maintenance,
   }
 
@@ -68,7 +68,7 @@ class munkiclient {
     ensure => present,
     path   => '/Library/Preferences/ManagedInstalls.plist',
     key    => 'ClientIdentifier',
-    value  => "$::hostname.nas.local",
+    value  => "$::{hostname}.nas.local",
     value_type => 'string',
   }
 
