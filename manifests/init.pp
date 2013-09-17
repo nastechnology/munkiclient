@@ -19,7 +19,7 @@ class munkiclient {
     provider => pkgdmg,
     alias    => 'munkiwebadmin',
     ensure   => installed,
-    source   => 'https://munkiwa.nas.local/munki_repo/munkiwebadmin.dmg',
+    source   => 'http://tech.napoleonareaschools.org/munkiwebadmin.dmg',
     schedule => maintenance,
   }
 
