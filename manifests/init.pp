@@ -15,11 +15,11 @@ class munkiclient {
     notify   => Exec["/sbin/reboot"],
   }
 
-  package { 'munkiwebadmin.dmg':
+  package { 'munkiwebadmin_scripts-2013.11.20.dmg':
     provider => pkgdmg,
     alias    => 'munkiwebadmin',
     ensure   => installed,
-    source   => 'http://tech.napoleonareaschools.org/munkiwebadmin.dmg',
+    source   => 'http://tech.napoleonareaschools.org/munkiwebadmin_scripts-2013.11.20.dmg',
     schedule => maintenance,
   }
 
@@ -47,7 +47,7 @@ class munkiclient {
     path    => '/Library/Preferences/ManagedInstalls.plist',
     key     => 'SoftwareRepoCACertificate',
     value   => '/usr/local/munki/munkiwa.nas.local.cert',
-    require => Package['munkiwebadmin.dmg'],
+    require => Package['munkiwebadmin_scripts-2013.11.20.dmg'],
   }
 
   property_list_key { 'LoggingLevel':
