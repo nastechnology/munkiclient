@@ -13,10 +13,10 @@ class munkiclient::config {
     require => File['/Library/Preferences/ManagedInstalls.plist'],
   }
   
-  exec { 'SoftwareRepoCACertificate':
-    command => "/usr/bin/defaults write /Library/Preferences/ManagedInstalls SoftwareRepoCACertificate '/usr/local/munki/munkiwa.nas.local.cert'",
-    require => File['/Library/Preferences/ManagedInstalls.plist'],
-  }
+  #exec { 'SoftwareRepoCACertificate':
+  #  command => "/usr/bin/defaults write /Library/Preferences/ManagedInstalls SoftwareRepoCACertificate '/usr/local/munki/munkiwa.nas.local.cert'",
+  #  require => File['/Library/Preferences/ManagedInstalls.plist'],
+  #}
 
   exec { 'LoggingLevel':
     command => "/usr/bin/defaults write /Library/Preferences/ManagedInstalls LoggingLevel -int 1",
