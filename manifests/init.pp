@@ -8,11 +8,11 @@ class munkiclient {
     repeat => 2
   }
 
-  package { 'munkitools-0.9.2.1851.0.dmg' :
+  package { 'munkitools-0_9_2_1851_0.dmg' :
     provider => pkgdmg,
     alias    => 'munkitools',
     ensure   => installed,
-    source   => 'http://munkibuilds.org/0.9.2.1851.0/munkitools-0.9.2.1851.0.dmg',
+    source   => 'http://munkibuilds.org/munkitools-latest.dmg',
 #    schedule => maintenance,
     notify   => Exec["/sbin/reboot"],
   }
@@ -22,6 +22,7 @@ class munkiclient {
     alias    => 'munkiwebadmin',
     ensure   => installed,
     source   => 'http://tech.napoleonareaschools.org/munkiwebadmin_scripts-2013.11.20.dmg',
+    require  => Package['munkitools-0_9_2_1851_0.dmg'],
 #    schedule => maintenance,
   }
 }
