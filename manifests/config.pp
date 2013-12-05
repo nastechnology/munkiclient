@@ -34,7 +34,7 @@ class munkiclient::config {
   }
 
   exec { 'InstallAppleSoftwareUpdates':
-    command => "/usr/bin/defaults write /Library/Preferences/ManagedInstalls InstallAppleSoftwareUpdates -bool TRUE',
+    command => "/usr/bin/defaults write /Library/Preferences/ManagedInstalls InstallAppleSoftwareUpdates -bool TRUE",
     require => File['/Library/Preferences/ManagedInstalls.plist'],
   }
 }
